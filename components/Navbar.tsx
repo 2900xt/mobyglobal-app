@@ -148,12 +148,7 @@ export default function Navbar() {
           {/* Sign In / Sign Up buttons for unauthenticated users */}
           {!loading && !user && (
             <div className="flex items-center gap-3">
-              <Link
-                href="/auth/login"
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors"
-              >
-                Sign In
-              </Link>
+              
               <Link
                 href="/auth/signup"
                 className="text-sm font-medium px-4 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 transition-all duration-300"
