@@ -121,12 +121,14 @@ export default function SignupPage() {
               </p>
 
               <div className="flex flex-col gap-3">
-                <button
-                  onClick={() => router.push("/contact")}
-                  className="w-full py-3 px-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(6,182,212,0.3)]"
+                <a
+                  href="https://mobylabs.org/contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(6,182,212,0.3)] text-center"
                 >
                   Request a Quote
-                </button>
+                </a>
                 <button
                   onClick={() => setShowEnterprisePopup(false)}
                   className="w-full py-3 px-6 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 border border-white/20"
