@@ -70,7 +70,7 @@ function verifyAuth(request: NextRequest): boolean {
 // GET /api/v1/detections/[id] - Get detailed information about a specific detection
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check authentication
@@ -84,7 +84,7 @@ export async function GET(
       );
     }
 
-    const { id } = params;
+    const { id } = await params;
 
     // Find the detection
     const detection = detections[id];
