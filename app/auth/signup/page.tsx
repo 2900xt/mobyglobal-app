@@ -19,7 +19,6 @@ export default function SignupPage() {
     agreedToTerms: false,
   });
 
-  const [submitted, setSubmitted] = useState(false);
   const [showEnterprisePopup, setShowEnterprisePopup] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -61,21 +60,8 @@ export default function SignupPage() {
       return;
     }
 
-    // Show success message
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        company: "",
-        password: "",
-        confirmPassword: "",
-        accountType: "individual",
-        agreedToTerms: false,
-      });
-    }, 3000);
+    // Redirect to main page after successful signup
+    router.push("/");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -177,35 +163,6 @@ export default function SignupPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <p className="text-red-400 text-sm font-semibold">{error}</p>
-            </div>
-          </div>
-        )}
-
-        {/* Success Message */}
-        {submitted && (
-          <div className="bg-emerald-500/10 border border-emerald-400/30 rounded-lg p-4 mb-4">
-            <div className="flex items-center gap-2 mb-3">
-              <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <div>
-                <h3 className="text-sm font-bold text-emerald-400">Account Created Successfully!</h3>
-                <p className="text-white/70 text-xs">Check your email for verification instructions.</p>
-              </div>
-            </div>
-            <div className="border-t border-emerald-400/20 pt-3">
-              <p className="font-semibold text-white text-sm mb-2">Want to see Moby Labs in action?</p>
-              <a
-                href="https://cal.com/ahat-rawjani/moby-labs-demo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-lg"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                Schedule a Demo
-              </a>
             </div>
           </div>
         )}
@@ -395,7 +352,7 @@ export default function SignupPage() {
             {/* Login Link */}
             <div className="text-center text-white/60 text-xs">
               Already have an account?{" "}
-              <Link href="/login" className="text-cyan-400 font-semibold hover:underline">
+              <Link href="/auth/login" className="text-cyan-400 font-semibold hover:underline">
                 Log in
               </Link>
             </div>
